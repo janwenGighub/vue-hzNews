@@ -1,0 +1,134 @@
+.contentList {
+  width: 1200px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+.search {
+  height: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid #f1f1f1;
+  border-radius: 2px;
+}
+
+.search .search_ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search .search_ul li {
+  width: 20%;
+  height: 38px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search .search_ul li p {
+  height: 34px;
+  line-height: 34px;
+  margin-right: 10px;
+}
+
+.customItem {
+  margin-bottom: 0;
+}
+
+.contentList .exhibition {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #efefef;
+  padding: 0 10px;
+}
+
+.contentList .exhibition .personList {
+  width: 38%;
+}
+
+.contentList .exhibition .personList .person_ul {
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contentList .exhibition .personList .person_ul li {
+  height: 120px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  margin: 5px 0;
+}
+
+.contentList .exhibition .personList .person_ul li>a {
+  display: inline-block;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fbfbfb;
+  border: 1px solid #efefef;
+  border-radius: 2px;
+}
+
+.contentList .exhibition .personList .person_ul li .imgBox {
+  width: 90px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.contentList .exhibition .personList .person_ul li .imgBox img {
+  width: 100%;
+  display: inline-block;
+}
+
+.contentList .exhibition .personList .person_ul li .message {
+  width: calc(100% - 90px - 15px);
+  height: 120px;
+  display: flex;
+  padding: 5px 0;
+  margin-left: 10px;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contentList .exhibition .personList .person_ul li .message p {
+  font-size: 14px;
+}
+
+.contentList .exhibition .personList .person_ul li .message p span {
+  display: inline-block;
+}
+
+.contentList .exhibition .personList .person_ul li .message p span:first-child {
+  width: 60px;
+  color: #999;
+  text-align: justify;
+  text-align-last: justify;
+  margin-right: 10px;
+}
+
+.contentList .exhibition .personList .person_ul li .message p span:last-child {
+  color: #4e4e4e;
+}
+
+.contentList .exhibition .map {
+  width: 61%;
+  /* height: 592px; */
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+
+.customLabel {
+  width: 40px;
+  text-align: center;
+}
+
+.customBlock {
+  width: 100%;
+  margin-left: 71px;
+}
+
+.personList .listPaging {
+  justify-content: space-around;
+}

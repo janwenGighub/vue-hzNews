@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>村警之星</title>
+  <!-- <link rel="stylesheet" href="../css/zTreeStyle.css" type="text/css"> -->
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../css/cjzxList.css">
+</head>
+
+<body>
+  <header></header>
+  <div class="mainContent">
+    <div class="mt20 commonTitle">
+      <h3>村警之星</h3>
+    </div>
+    <div class="mt20 mb20 preview">
+      <ul class="person_ul" id="customCjzxId">
+        <!-- <li>
+          <a href="javascript:;">
+            <div class="imgBox">
+              <img src="../image/03.jpg" alt="">
+            </div>
+            <div class="describe">
+              <p>皮皮虾</p>
+              <p>惠州</p>
+              <p>123</p>
+            </div>
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
+<script src="../js/jquery-1.12.4.js"></script>
+<!-- <script src="../js/jquery.ztree.core.js"></script> -->
+<script src="../src/layui.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/cjzxList.js"></script>
+<script id="cjzxScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    <li>
+      <a href={{ hostsrp.locationHref + hostsrp.policeDetailsPage + '?id=' + item.id }} target="_blank">
+        <div class="imgBox">
+          <img src={{ hostsrp.imgUrl + item.image }} alt="">
+        </div>
+        <div class="describe">
+          <p>姓名:{{ item.title }}</p>
+          <p>村居:{{ item.policeareaname }}</p>
+        </div>
+      </a>
+  </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>

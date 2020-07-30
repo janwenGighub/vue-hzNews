@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仲恺一村一警</title>
+    <link rel="stylesheet" href="./src/css/layui.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/demo.css">
+    <link rel="stylesheet" href="./css/zTreeStyle.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+      .zcjjlShow {
+        display: none !important;
+      }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div class="contentArea">
+        <div class="mt20 preview">
+            <div class="mySwiper">
+                <div class="layui-carousel" id="test1" lay-filter="test1">
+                    <div id="swiperBox" carousel-item="">
+                        <!-- <div class="swiperItem">
+              <a href="javascript:;">
+                <div class="imgBox">
+                  <img src="./image/04.jpg" alt="">
+                </div>
+                <p>轮播图测试标题</p>
+              </a>
+            </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="commonDt">
+                <div class="dtTagTitle">
+                    <ul class="dtTag_ul">
+                        <li><a class="dtCor" href="javascript:;">分局动态</a></li>
+                        <li><a href="javascript:;">派出所动态</a></li>
+                    </ul>
+                    <div class="newsList">
+                        <ul class="newsList_ul" id="common_Dt_Ul">
+                        </ul>
+                    </div>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 通知通告 / 领导批示 / 分局动态 / 各所简报 -->
+        <div class="mt40 newListBox">
+            <div class="allBorder titleName">
+                <div class="title">
+                    <div class="name nameChange">
+                        <p class="targetBdCor">
+                            <a href="javascript:;">
+                                <img src="./image/tztg_icon.png" alt="">
+                                <span>通知通告</span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="javascript:;">
+                                <img src="./image/ldps_icon.png" alt="">
+                                <span>领导批示</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="total"></div>
+                </div>
+                <div class="newsList2">
+                    <ul class="news_ul" id="ldpsAndTztg">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+            <div class="allBorder titleName">
+                <div class="title">
+                    <div class="name nameChange">
+                        <p class="targetBdCor">
+                            <a href="javascript:;">
+                                <img src="./image/tztg_icon.png" alt="">
+                                <span>分局简报</span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="javascript:;">
+                                <img src="./image/ldps_icon.png" alt="">
+                                <span>各所简报</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="total"></div>
+                </div>
+                <div class="newsList2">
+                    <ul class="news_ul" id="gzjbAndGzdtb">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 辖区地图 -->
+        <div class="mt40 allBorder xqdtBox">
+            <div class="titleBox">
+                <img src="./image/xqdt_icon.png" alt="">辖区地图
+            </div>
+            <div class="mt20 parentBox">
+                <div class="xqdtMap">
+                    <img src="" alt="">
+                    <div class="lookMore">
+                        <a href="javascript:;" id="xqdtMore" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+                <div class="zcmjBox">
+                    <div class="title">
+                        驻村（居）警力
+                    </div>
+                    <div class="policeList">
+                        <ul class="police_ul">
+                          <li>
+                            <div class="imgBox">
+                              <img src='./image/qp.jpg' alt="">
+                            </div>
+                            <div class="describe">
+                              <p>
+                                <span>姓名：</span><span>阙鹏</span>
+                              </p>
+                              <p>
+                                <span>警号：</span><span>139031</span>
+                              </p>
+                              <p>
+                                <span>联系方式：</span><span>13902661272</span>
+                              </p>
+                              <p>
+                                <span>单位：</span><span>村警办</span>
+                              </p>
+                              <p>
+                                <span>职务：</span><span>副主任</span>
+                              </p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="imgBox">
+                              <img src='./image/yjt.jpg' alt="">
+                            </div>
+                            <div class="describe">
+                              <p>
+                                <span>姓名：</span><span>叶建庭</span>
+                              </p>
+                              <p>
+                                <span>警号：</span><span>139035</span>
+                              </p>
+                              <p>
+                                <span>联系方式：</span><span>15986986153</span>
+                              </p>
+                              <p>
+                                <span>单位：</span><span>村警办</span>
+                              </p>
+                              <p>
+                                <span>职务：</span><span>团委副书记</span>
+                              </p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="imgBox">
+                              <img src='./image/ctt.jpg' alt="">
+                            </div>
+                            <div class="describe">
+                              <p>
+                                <span>姓名：</span><span>陈涛涛</span>
+                              </p>
+                              <p>
+                                <span>警号：</span><span>X72403</span>
+                              </p>
+                              <p>
+                                <span>联系方式：</span><span>18565852947</span>
+                              </p>
+                              <p>
+                                <span>单位：</span><span>村警办</span>
+                              </p>
+                              <p>
+                                <span>职务：</span><span>辅警</span>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul class="police_ul zcjjlShow" id="customZcmjId">
+                        </ul>
+                        <div class="lookMore">
+                            <a href="javascript:;">查看更多 >></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 基本概况 统计 -->
+        <div class="mt40 allBorder jbgkStatistics">
+            <div class="titleBox">
+                <img src="./image/jbgk_icon.png" alt="">基本概况
+            </div>
+            <ul class="mt20 statistics_ul" id="customJbgkId">
+            </ul>
+        </div>
+        <!-- 优秀村居 / 规章制度 -->
+        <div class="mt40 yxcjAndgzzd">
+            <div class="allBorder yxcjParentBox">
+                <div class="titleBox">
+                    <img src="./image/yxcj_icon.png" alt="">优秀村居
+                </div>
+                <div class="mt20 yxcj_div">
+                    <ul class="yxcj_ul" id="customYxcjId">
+                    </ul>
+                </div>
+                <div class="lookMore">
+                    <a href="javascript:;" target="_blank">查看更多 >></a>
+                </div>
+            </div>
+            <div class="allBorder gzzdParentBox">
+                <div class="titleBox">
+                    <img src="./image/gzzd_icon.png" alt="">规章制度
+                </div>
+                <div class="mt20 newsList2">
+                    <ul class="news_ul" id="customGzzdId">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 工作轨迹 -->
+        <div class="mt40 allBorder workTrack">
+            <div class="titleBox">
+                <img src="./image/rygj_icon.png" alt="">工作轨迹
+            </div>
+            <div class="mt20 preview">
+                <div class="personPanel">
+                    <div class="search">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入姓名"
+                            autocomplete="off" class="layui-input" id="inputUserName">
+                        <button type="button" class="layui-btn layui-btn-normal" id="searchBtn">搜索</button>
+                    </div>
+                    <div class="personList">
+                        <ul class="person_ul" id="customGzgjId">
+                        </ul>
+                    </div>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                    <div class="customPaging">
+                        <div id="demo3"></div>
+                    </div>
+                </div>
+                <div class="mapPanel" id="allmap"></div>
+            </div>
+        </div>
+        <!-- 驻村（居）警力工作动态排行 -->
+        <div class="mt40 allBorder zcjlParentBox">
+            <div class="titleBox">
+                <img src="./image/zcjl_icon.png" alt="">驻村（居）警力工作动态排行
+            </div>
+            <div class="mt20 phbPreview">
+                <div class="cjzxPanel">
+                    <div class="policeList">
+                        <ul class="police_ul" id="customZcjlId">
+                            <!-- <li>
+                                <a href="javascript:;">
+                                    <div class="imgBox">
+                                        <img src="./image/police2.png" alt="">
+                                    </div>
+                                    <p>皮皮虾</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <div class="imgBox">
+                                        <img src="./image/police2.png" alt="">
+                                    </div>
+                                    <p>皮皮虾</p>
+                                </a>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div class="lookMore">
+                        <a href="javascript:;">查看更多 >></a>
+                    </div>
+                </div>
+                <div class="gsphPanel">
+                    <div class="phbTitle">
+                        <h2 class="name">
+                            各所排行
+                        </h2>
+                        <p>-- 排行榜 --</p>
+                    </div>
+                    <ul class="common_ul" id="customGsphId">
+                    </ul>
+                </div>
+                <div class="gcjphPanel">
+                    <div class="phbTitle">
+                        <h2 class="name">
+                            各村（居）排行
+                        </h2>
+                        <p>-- 排行榜 --</p>
+                    </div>
+                    <ul class="common_ul" id="customGcjphId">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+                <div class="cjphPanel">
+                    <div class="phbTitle">
+                        <h2 class="name">
+                            村警排行
+                        </h2>
+                        <p>-- 排行榜 --</p>
+                    </div>
+                    <ul class="common_ul" id="customCjphId">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 三+N结合 / 联席村居 / 问题整治 / 化解矛盾纠纷 -->
+        <div class="mt40 newListBox">
+            <div class="allBorder titleName">
+                <div class="title">
+                    <div class="name nameChange">
+                        <p class="targetBdCor">
+                            <a href="javascript:;">
+                                <img src="./image/sjnjh_icon.png" alt="">
+                                <span>三+N结合</span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="javascript:;">
+                                <img src="./image/lxcj_icon.png" alt="">
+                                <span>联席村居</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="total"></div>
+                </div>
+                <div class="newsList">
+                    <ul class="news_ul customNewsList" id="customThreeNId">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+            <div class="allBorder titleName">
+                <div class="title">
+                    <div class="name nameChange">
+                        <p class="targetBdCor">
+                            <a href="javascript:;">
+                                <img src="./image/wtzz_icon.png" alt="">
+                                <span>问题整治</span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="javascript:;">
+                                <img src="./image/hjmdjf_icon.png" alt="">
+                                <span>化解矛盾纠纷</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="total"></div>
+                </div>
+                <div class="newsList">
+                    <ul class="news_ul customNewsList" id="customWtzzId">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 安全检查监督 / 联系群众 / 重点人员管控 / 其他 -->
+        <div class="mt40 newListBox">
+            <div class="allBorder titleName">
+                <div class="title">
+                    <div class="name nameChange">
+                        <p class="targetBdCor">
+                            <a href="javascript:;">
+                                <img src="./image/aqjcjd_icon.png" alt="">
+                                <span>安全检查监督</span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="javascript:;">
+                                <img src="./image/lxqz_icon.png" alt="">
+                                <span>联系群众</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="total"></div>
+                </div>
+                <div class="newsList">
+                    <ul class="news_ul customNewsList" id="customAqjdjcId">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+            <div class="allBorder titleName">
+                <div class="title">
+                    <div class="name nameChange">
+                        <p class="targetBdCor">
+                            <a href="javascript:;">
+                                <img src="./image/zdrygk_icon.png" alt="">
+                                <span>重点人员管控</span>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="javascript:;">
+                                <img src="./image/qt_icon.png" alt="">
+                                <span>其他</span>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="total"></div>
+                </div>
+                <div class="newsList">
+                    <ul class="news_ul customNewsList" id="customZdrygkId">
+                    </ul>
+                    <div class="lookMore">
+                        <a href="javascript:;" target="_blank">查看更多 >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 宣传教育 -->
+        <div class="mt40 allBorder publicityBox">
+            <div class="titleBox xcjyBox">
+                <p>
+                    <img src="./image/zcjl_icon.png" alt="">
+                    <span>宣传教育</span>
+                </p>
+                <p></p>
+            </div>
+            <ul class="mt20" id="customXcjyId">
+                <!--   <li>
+                    <a href="javascript:;">
+                        <div class="imgBox">
+                            <img src="./image/03.jpg" alt="">
+                        </div>
+                        <p>惠州新闻</p>
+                    </a>
+                </li> -->
+            </ul>
+            <div class="lookMore">
+                <a href="javascript:;" target="_blank">查看更多 >></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.ztree.core.js"></script>
+<script src="./js/moment.js"></script>
+<script src="./src/layui.js"></script>
+<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=cOMo1Q2VVE3scKBE6pWbv8dfvoDuaj8S"></script>
+<!-- <script type="text/javascript" src="../polyfill.js"></script> -->
+<!-- <script type="text/javascript" src="../baiduMap/map_load.js"></script> -->
+<script src="./js/api.js"></script>
+<script src="./js/main.js"></script>
+<script id="swiperList" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+        <div class="swiperItem">
+              <a href={{ hostsrp.locationHref + hostsrp.detailsPage }}>
+                <div class="imgBox">
+                  <img src={{ hostsrp.imgUrl + item.image }} alt="">
+                </div>
+                <p>
+                  {{ item.title }}
+                </p>
+              </a>
+        </div>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="fjdtSwiperList" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+        <div class="swiperItem">
+              <a target="_blank" href={{ hostsrp.locationHref + hostsrp.allDtDetailsPage + "?NewsId=" + item.NewsId }}>
+                <div class="imgBox">
+                  <img src={{ hostsrp.swiperImgUrl + item.PictureNewsAddress }} alt="">
+                </div>
+                <p>
+                  {{ item.NewsTitle }}
+                </p>
+              </a>
+        </div>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="fjdtList" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    <li>
+      <a href={{ hostsrp.locationHref + hostsrp.allDtDetailsPage + "?NewsId=" +  item.NewsId }} target="_blank">
+        <span>{{ item.NewsTitle }}</span>
+        <span>{{ timeChange.momentChange(item.CreateDate) }}</span>
+      </a>
+    </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="commonDtList" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    <li>
+      <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
+        <span>{{ item.title }}</span>
+        <span>{{ timeChange.dateChange(item.createDate) }}</span>
+      </a>
+    </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="ldpsAndTztgScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    <li>
+      <a href="javascript:;">
+        <span>{{ item.createName }}</span>
+        <span>{{ item.title }}</span>
+        <span>{{ timeChange.dateChange(item.createDate) }}</span>
+      </a>
+    </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="ldpsAndTztgScript2" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    <li>
+      <a href={{ hostsrp.locationHref + hostsrp.allDtDetailsPage + "?NewsId=" + item.NewsId }} target="_blank">
+        <span>{{ item.NewsTitle }}</span>
+        <span>{{ timeChange.momentChange(item.CreateDate) }}</span>
+      </a>
+    </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="gsjbScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    <li>
+      <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
+        <span>{{ item.title }}</span>
+        <span>{{ timeChange.dateChange(item.createDate) }}</span>
+      </a>
+    </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="zcmjScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+  {{#  if(item.avatar){ }}
+    <li>
+      <div class="imgBox">
+        <img src={{ hostsrp.zcmjImgUrl + item.avatar }} alt="">
+      </div>
+      <div class="describe">
+        <p>
+          <span>姓名：</span><span>{{ item.realname }}</span>
+        </p>
+        <p>
+          <span>警号：</span><span>{{ item.workNo }}</span>
+        </p>
+        <p>
+          <span>手机号：</span><span>{{ item.phone }}</span>
+        </p>
+        <p>
+          <span>村居：</span><span>驻{{ item.orgCode }}</span>
+        </p>
+        <p>
+          <span>所属：</span><span>{{ item.post }}</span>
+        </p>
+      </div>
+    </li>
+  {{#  } else { }}
+    <li>
+      <div class="imgBox">
+        <img src="./image/police.png" alt="">
+      </div>
+      <div class="describe">
+        <p>
+          <span>姓名：</span><span>{{ item.realname }}</span>
+        </p>
+        <p>
+          <span>警号：</span><span>{{ item.workNo }}</span>
+        </p>
+        <p>
+          <span>手机号：</span><span>{{ item.phone }}</span>
+        </p>
+        <p>
+          <span>村居：</span><span>驻{{ item.orgCode }}</span>
+        </p>
+        <p>
+          <span>所属：</span><span>{{ item.post }}</span>
+        </p>
+      </div>
+    </li> 
+  {{#  } }}     
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="jbgkScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+      <li>
+        <div>
+          <p>{{ item.CLASSNAME }}</p>
+          <p>{{ item.SL }}</p>
+        </div>
+      </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="yxcjScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+  {{#  if(index === 0){ }}
+  <li>
+      <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
+        <div class="imgBox">
+            <img src="./image/cj_icon.png" alt="">
+        </div>
+        <div class="describe">
+            <p>{{ item.title }}</p>
+            <p>
+                <img src="./image/first_icon.png" alt="">
+            </p>
+        </div>
+      </a>
+    </li>
+  {{#  } else if (index === 1) { }}
+    <li>
+      <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
+        <div class="imgBox">
+            <img src="./image/cj_icon.png" alt="">
+        </div>
+        <div class="describe">
+            <p>{{ item.title }}</p>
+            <p>
+                <img src="./image/second_icon.png" alt="">
+            </p>
+        </div>
+      </a>
+    </li>
+  {{#  } else { }}
+  <li>
+      <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
+        <div class="imgBox">
+            <img src="./image/cj_icon.png" alt="">
+        </div>
+        <div class="describe">
+            <p>{{ item.title }}</p>
+            <p>
+                <img src="./image/thirdly_icon.png" alt="">
+            </p>
+        </div>
+      </a>
+  </li>
+  {{#  } }}     
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="gzgjScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+      {{#  if(item.image){ }}
+       <li>
+          <a href="javascript:;" data-usernames={{ item.usernames }}>
+            <div class="imgBox">
+                <img src={{ hostsrp.zcmjImgUrl + item.image }} alt="">
+            </div>
+            <div class="describe">
+                <p><span>姓名：</span><span>{{ item.realname }}</span></p>
+                <p><span>警号：</span><span>{{ item.policeNum }}</span></p>
+                <p><span>手机号：</span><span>{{ item.phone }}</span></p>
+                <p><span>所属：</span><span>{{ item.policeName }}</span></p>
+            </div>
+          </a>
+      <li>
+      {{#  } else { }}
+      <li>
+        <a href="javascript:;" data-usernames={{ item.usernames }}>
+          <div class="imgBox">
+            <img src="./image/police2.png" alt="">
+          </div>
+          <div class="describe">
+              <p><span>姓名：</span><span>{{ item.realname }}</span></p>
+              <p><span>警号：</span><span>{{ item.policeNum }}</span></p>
+              <p><span>手机号：</span><span>{{ item.phone }}</span></p>
+              <p><span>所属：</span><span>{{ item.policeName }}</span></p>
+          </div>
+        </a>
+      </li>
+        {{#  } }}     
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="zcjlScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+      <li>
+          <a href="javascript:;">
+              <div class="imgBox">
+                  <img src={{ hostsrp.imgUrl + item.image }} alt="">
+              </div>
+              <p>{{ item.title }}</p>
+          </a>
+      </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="pcsPhScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+      {{#  if(index === 0){ }}
+      <li>
+        <span>
+            <img src="./image/first_icon.png" alt="">
+        </span>
+        <span>{{ item.username }}</span>
+        <span>{{ item.totalpoints }}</span>
+      </li>
+    {{#  } else if(index === 1) { }}
+      <li>
+        <span>
+            <img src="./image/second_icon.png" alt="">
+        </span>
+        <span>{{ item.username }}</span>
+        <span>{{ item.totalpoints }}</span>
+      </li>
+      {{#  } else if (index === 2) { }}
+      <li>
+          <span>
+              <img src="./image/thirdly_icon.png" alt="">
+          </span>
+          <span>{{ item.username }}</span>
+          <span>{{ item.totalpoints }}</span>
+      </li>
+      {{#  } else { }}
+      <li>
+        {{#  if(index + 1 === 7){ }}
+          <span>-</span>
+        {{#  } else { }}
+          <span>{{ index + 1 }}</span>
+        {{#  } }}   
+        <span>{{ item.username }}</span>
+        {{#  if(index + 1 === 7){ }}
+        <span>-</span>
+        {{#  } else { }}
+        <span>{{ item.totalpoints }}</span>
+        {{#  } }}
+      </li>
+    {{#  } }}    
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="gsphScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+      {{#  if(index === 0){ }}
+      <li>
+        <span>
+            <img src="./image/first_icon.png" alt="">
+        </span>
+        <span>{{ item.username }}</span>
+        <span>{{ item.totalpoints }}</span>
+      </li>
+    {{#  } else if(index === 1) { }}
+      <li>
+        <span>
+            <img src="./image/second_icon.png" alt="">
+        </span>
+        <span>{{ item.username }}</span>
+        <span>{{ item.totalpoints }}</span>
+      </li>
+      {{#  } else if (index === 2) { }}
+      <li>
+          <span>
+              <img src="./image/thirdly_icon.png" alt="">
+          </span>
+          <span>{{ item.username }}</span>
+          <span>{{ item.totalpoints }}</span>
+      </li>
+      {{#  } else { }}
+      <li>
+        <span>
+            {{ index + 1 }}
+        </span>
+        <span>{{ item.username }}</span>
+        <span>{{ item.totalpoints }}</span>
+      </li>
+    {{#  } }}    
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="newsListScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+     <li>
+        <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
+            <span>[ {{ item.policeareaname }} ]</span>
+            <span>{{ item.title }}</span>
+            <span>{{ timeChange.dateChange(item.createDate) }}</span>
+        </a>
+    </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script id="xcjyScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+     <li>
+        <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
+            <div class="imgBox">
+                <img src="{{hostsrp.imgUrl + item.image}}" alt="">
+            </div>
+            <p>
+              <span>[ {{ item.policeareaname }} ]</span>
+              <span>{{ item.title }}</span>
+            </p>
+        </a>
+    </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
+<script src="./js/index.js"></script>

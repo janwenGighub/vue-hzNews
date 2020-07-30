@@ -1,0 +1,20 @@
+.news_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.news_content .imgBox {
+  width: 200px;
+  height: 290px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.news_content .imgBox img {
+  display: block;
+  width: 100%;
+}
+.news_content .describe {
+  margin-left: 20px;
+  width: calc(100% - 200px - 20px);
+}

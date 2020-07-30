@@ -1,0 +1,14 @@
+.mainContent h1,
+.mainContent h3 {
+	text-align: center;
+}
+h3 span {
+	display: inline-block;
+	margin: 0 5px;
+}
+.news_content img {
+	width: 100%;
+	height: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

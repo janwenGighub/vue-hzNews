@@ -1,0 +1,61 @@
+.preview {
+  border: 1px solid #efefef;
+}
+
+/* 中心内容 start */
+
+.xqdtTitle {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  background-color: aliceblue;
+  border: 1px solid #efefef;
+  box-shadow: 0px 0px 2px #9d9ea3;
+  color: #27367D;
+}
+
+.person_ul {
+  width: 100%;
+  min-height: 1080px;
+  border: 1px solid #efefef;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.person_ul li {
+  width: 20%;
+  padding: 0 2.5%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.person_ul li a {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid #efefef;
+}
+
+.person_ul li a .imgBox {
+  width: 200px;
+  height: 290px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.person_ul li a .imgBox img {
+  display: block;
+  width: 100%;
+}
+
+.person_ul li a .describe {
+  width: 100%;
+  margin: 10px 0;
+}
+.person_ul li a .describe p {
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+
+/* 中心内容 end */

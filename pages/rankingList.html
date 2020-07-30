@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排行榜</title>
+    <link rel="stylesheet" href="../src/css/layui.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/moreList.css">
+    <link rel="stylesheet" href="../css/rankingList.css">
+</head>
+
+<body>
+    <header></header>
+    <div class="contentList">
+        <div class="mt20 commonTitle">
+            <h3></h3>
+        </div>
+        <div class="mt20 phbList">
+            <div class="gcph">
+                <h3 class="mt10 titleBox">
+                    各村（居）排行
+                </h3>
+                <div class="mt10 phbName">-- 排行榜 --</div>
+                <ul class="sort_ul" id="customGcjphId">
+                </ul>
+            </div>
+            <div class="cjph">
+                <h3 class="mt10 titleBox">
+                    村警排行
+                </h3>
+                <div class="mt10 phbName">-- 排行榜 --</div>
+                <ul class="sort_ul" id="customGcjphId2">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="../src/layui.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/rankingList.js"></script>
+<script id="gsphScript" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+      {{#  if(index === 0){ }}
+      <li>
+        <span>
+            <img src="../image/first_icon.png" alt="">
+        </span>
+        <span>{{ item.username }}</span>
+        <span>{{ item.totalpoints }}</span>
+      </li>
+    {{#  } else if(index === 1) { }}
+      <li>
+        <span>
+            <img src="../image/second_icon.png" alt="">
+        </span>
+        <span>{{ item.username }}</span>
+        <span>{{ item.totalpoints }}</span>
+      </li>
+      {{#  } else if (index === 2) { }}
+      <li>
+          <span>
+              <img src="../image/thirdly_icon.png" alt="">
+          </span>
+          <span>{{ item.username }}</span>
+          <span>{{ item.totalpoints }}</span>
+      </li>
+      {{#  } else { }}
+      <li>
+        <span>
+            {{ index + 1 }}
+        </span>
+        <span>{{ item.username }}</span>
+        <span>{{ item.totalpoints }}</span>
+      </li>
+    {{#  } }}    
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>

@@ -1,0 +1,70 @@
+.mainContent h1, .mainContent h3 {
+  text-align: center;
+}
+
+h3 span {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.news_content {
+  display: flex;
+  justify-content: flex-start;
+  border: 1px solid #efefef;
+  min-height: 300px;
+}
+
+.news_content #imgs {
+  width: 500px;
+  height: 300px;
+}
+
+.news_content #imgs>a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.news_content #imgs>a img {
+  display: inline-block;
+  width: 100%;
+}
+
+.news_content .customTable {
+  margin-left: 10px;
+  width: calc(100% - 10px - 500px);
+}
+
+/*id为customers 的标签的样式*/
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/*id为customers 的标签里面的td标签和th标签的样式*/
+
+#customers td, #customers th {
+  font-size: 1em;
+  border: 1px solid #efefef;
+  padding: 15px 7px 15px 7px;
+}
+
+/*id为customers 的标签里面的th标签的样式*/
+
+#customers th {
+  font-size: 1.3em;
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #efefef;
+  color: black;
+}
+
+/*id为customers的标签里面的class名为alt的tr标签里面的td标签的样式*/
+
+#customers tr.alt td {
+  color: #000;
+  background-color: #fbfbfb;
+}

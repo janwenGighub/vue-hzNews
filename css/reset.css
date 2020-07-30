@@ -1,0 +1,167 @@
+.commonCor {
+    color: rgb(39, 54, 125);
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mt40 {
+    margin-top: 40px;
+}
+
+.preview {
+    display: flex;
+    justify-content: space-between;
+}
+
+a:hover {
+    color: blue;
+}
+
+.dtCor {
+    color: blue;
+}
+
+.targetBdCor {
+    border-bottom: 3px solid #27367D;
+}
+
+.lookMore {
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+
+.lookMore>a {
+    color: #5151c8;
+    font-size: 14px;
+}
+
+/****************** 公共导航 Start *****************/
+
+.navTitle {
+    height: 320px;
+    background-image: url('../image/bana2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+
+.navTitle h1 {
+    font-size: 46px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.navTitle h2 {
+    font-size: 38px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.navTitle h2>span {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.navList {
+    background-color: #27367D;
+}
+
+.navList>ul {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navList>ul>li {
+    height: 50px;
+    line-height: 50px;
+}
+
+.navList>ul>li:nth-child(2) {
+    position: relative;
+}
+
+.navList>ul>li:nth-child(2) .customMenu {
+    width: 130px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 10;
+    border: 1px solid #d2d2d2;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.navList>ul>li:nth-child(2) .customMenu .list>a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.navList>ul>li:nth-child(2) .customMenu .list>a:hover {
+    background-color: #5FB878;
+    color: #fff !important;
+}
+
+.navList>ul>li:last-child {
+    position: relative;
+}
+
+.navList>ul>li>a {
+    display: block;
+    color: white;
+    font-size: 16px;
+}
+
+.customShow {
+    display: none;
+}
+
+/****************** 公共导航 End *****************/
+.mainContent {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.mainContent .commonTitle h3 {
+    height: 40px;
+    line-height: 40px;
+    font-weight: 600;
+    border: 1px solid #ededed;
+    padding-left: 10px;
+    background-color: #f2f2f2;
+}
+
+.listPaging {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.spinShow {
+    display: none;
+}
+
+#foo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

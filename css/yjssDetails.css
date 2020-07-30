@@ -1,0 +1,103 @@
+.preview {
+  min-height: 622px;
+}
+
+.policeBox {
+  width: 100%;
+  border: 1px solid #f5efef;
+  border-radius: 2px;
+  position: relative;
+}
+
+.preview .policeBox .viewBox {
+  margin-bottom: 20px;
+}
+
+.preview .policeBox .viewBox h4 {
+  text-align: center;
+  font-size: 24px;
+  color: #27367D;
+  font-weight: 600;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  border-bottom: 1px dashed #efefef;
+  font-family: '微软雅黑';
+}
+
+.preview .policeBox .viewBox .person {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #efefef;
+  min-height: 151px;
+}
+
+.preview .policeBox .viewBox .person .villageName {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 19px;
+  color: #27367D;
+  border-bottom: 1px dashed #efefef;
+  font-family: '宋体';
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview .policeBox .viewBox .person .personList {
+  width: calc(100% - 100px);
+}
+
+.policeBox .zcmj_ul {
+  width: 100%;
+  /* height: 600px; */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-right: 1px solid #efefef;
+}
+
+.policeBox .zcmj_ul li {
+  width: 20%;
+  height: 110px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.policeBox .zcmj_ul li a {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.policeBox .zcmj_ul li .imgBox {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid #efefef;
+}
+
+.policeBox .zcmj_ul li .imgBox img {
+  display: block;
+  width: 100%;
+}
+
+.policeBox .noData {
+  width: 195px;
+  height: 128px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.policeBox .noData>img {
+  display: inline-block;
+  width: 100%;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hello</title>
+</head>
+
+<body>
+  <div id="hello"></div>
+</body>
+
+</html>
+<script id="demo" type="text/html">
+    <h3>{{ d.title }}</h3>
+</script>
+<script>
+  layui.use('laytpl', function () {
+    var laytpl = layui.laytpl
+    var orderInfoTpl = commonDtList.innerHTML
+      , orderInfoDiv = document.getElementById('common_Dt_Ul')
+    laytpl(orderInfoTpl).render(customArr, function (html) { //渲染视图
+      orderInfoDiv.innerHTML = html
+    })
+  })
+</script>

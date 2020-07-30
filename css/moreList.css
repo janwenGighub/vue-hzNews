@@ -1,0 +1,37 @@
+.preview {
+    min-height: 412px;
+    position: relative;
+}
+
+.preview .preview_list {
+    width: 100%;
+}
+
+.preview .preview_list li>a {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.preview .preview_list li>a span {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.preview .preview_list li>a span:first-child {
+    width: 100px;
+}
+
+.preview .preview_list li>a span:nth-child(2) {
+    margin-left: 10px;
+    width: calc(100% - 100px - 100px - 10px);
+}
+
+.preview .preview_list li>a span:last-child {
+    width: 100px;
+}

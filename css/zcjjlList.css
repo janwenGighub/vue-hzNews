@@ -1,0 +1,106 @@
+.preview {
+  min-height: 622px;
+}
+
+.policeBox {
+  width: 100%;
+  border: 1px solid #f5efef;
+  border-radius: 2px;
+}
+
+.preview .policeBox .viewBox {
+  margin-bottom: 20px;
+}
+
+.preview .policeBox .viewBox h4 {
+  font-size: 17px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  border-bottom: 1px dashed #efefef;
+  font-family: '微软雅黑';
+}
+
+.preview .policeBox .viewBox .person {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #efefef  ;
+  min-height: 151px;
+}
+
+.preview .policeBox .viewBox .person .villageName {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 13px;
+  color: #7f7e7e;
+  border-bottom: 1px dashed #efefef;
+  font-family: '宋体';
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview .policeBox .viewBox .person .personList {
+  width: calc(100% - 100px);
+}
+
+.policeBox .zcmj_ul {
+  width: 100%;
+  /* height: 600px; */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-right: 1px solid #efefef;
+}
+
+.policeBox .zcmj_ul li {
+  width: 30%;
+  height: 110px;
+  padding: 0 1%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.policeBox .zcmj_ul li .imgBox {
+  width: 80px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid #efefef;
+}
+
+.policeBox .zcmj_ul li .imgBox img {
+  display: block;
+  width: 100%;
+}
+
+.policeBox .zcmj_ul li .describe {
+  margin-left: 10px;
+  width: calc(100% - 80px - 10px);
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.policeBox .zcmj_ul li .describe p span {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.policeBox .zcmj_ul li .describe p span:first-child {
+  width: 60px;
+  margin-right: 10px;
+  text-align: justify;
+  text-align-last: justify;
+  color: #999;
+}
+
+.policeBox .zcmj_ul li .describe p span:last-child {
+  color: #4e4e4e;
+}

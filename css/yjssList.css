@@ -1,0 +1,44 @@
+.mapList {
+  width: 100%;
+}
+
+.mapList ul.map_ul {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.mapList ul.map_ul li {
+  width: 12%;
+  height: 150px;
+  padding: 0 2.33%;
+  margin-bottom: 20px;
+}
+
+.mapList ul.map_ul li a {
+  display: inline-block;
+  width: 100%;
+  /* background-color: #efefef; */
+}
+
+.mapList ul.map_ul li a .describe p {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mapList ul.map_ul li a .imgBox {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.mapList ul.map_ul li a .imgBox img {
+  display: inline-block;
+  width: 100%;
+}

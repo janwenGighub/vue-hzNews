@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>两委干部</title>
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/demo.css">
+  <link rel="stylesheet" href="../css/leader.css">
+</head>
+
+<body>
+  <header></header>
+  <div class="mainContent">
+    <div class="mt20 commonTitle">
+      <h3>两委干部</h3>
+    </div>
+    <div class="mt20 mb20 mapList">
+      <ul class="cjzxUl" id="customLwgbId">
+        <!-- <li class="">
+          <div class="imgBox">
+            <img src="../image/03.jpg" alt="">
+          </div>
+          <div class="message">
+            <p>
+              <span>姓名:</span>
+              <span>皮皮虾</span>
+            </p>
+            <p>
+              <span>职务:</span>
+              <span>民警</span>
+            </p>
+            <p>
+              <span>联系电话:</span>
+              <span>13059555285</span>
+            </p>
+          </div>
+        </li> -->
+      </ul>
+    </div>
+    <div class="listPaging">
+      <div id="demo3"></div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="../src/layui.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/leader.js"></script>
+<script id="lwgbScript" src="" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+     <li class="">
+          <div class="imgBox">
+            <img src={{ hostsrp.imgUrl + item.zp }} alt="">
+          </div>
+          <div class="message">
+            <p>
+              <span>姓名:</span>
+              <span>{{ item.xm }}</span>
+            </p>
+            <p>
+              <span>职务:</span>
+              <span>{{ item.zw }}</span>
+            </p>
+            <p>
+              <span>联系电话:</span>
+              <span>{{ item.lxdh }}</span>
+            </p>
+          </div>
+    </li>
+  {{#  }); }}
+  {{#  if(d.length === 0){ }}
+    无数据
+  {{#  } }} 
+</script>
