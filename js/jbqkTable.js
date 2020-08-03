@@ -112,6 +112,10 @@ $(function () {
               '<th colspan="3" style="text-align: center;">基本情况表 </th>' +
               '</tr>' +
               '<tr class="alt">' +
+              '<td>户籍人口（约）</td>' +
+              '<td>' + item.czrk + '</td>' +
+              '</tr>' +
+              '<tr class="alt">' +
               '<td>流动人口（约）</td>' +
               '<td>' + item.ldrk + '</td>' +
               '</tr>' +
