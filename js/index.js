@@ -32,6 +32,7 @@ var mainApp = {
         yxcjCategoryId: '', // 优秀村居 栏目 id
         gzzdCategoryId: '', // 规章制度 栏目 id
         xcjyCategoryId: '', // 宣传教育 栏目 id
+        zlcwCategoryId: '', // 助力创文 栏目 id
         jbgkCategoryId: '', // 基本概况 栏目 id
         tcwtzzCategoryId: '', // 突出问题整治 栏目 id
 
@@ -137,6 +138,9 @@ var mainApp = {
                     break;
                 case '宣传教育':
                     mainApp.store.xcjyCategoryId = obj.id
+                    break;
+                case '助力创文':
+                    mainApp.store.zlcwCategoryId = obj.id
                     break;
                 case '重点人员管控':
                     mainApp.store.zdrygkCategoryId = obj.id
@@ -1054,7 +1058,7 @@ var mainApp = {
             let url = webApi.base.getUrl(webApi.commonUrl.columnList)
             let data = {
                 pageNo: 1,
-                pageSize: 4,
+                pageSize: 2,
                 policeId: mainApp.store.policeId,
                 categoryId: mainApp.store.xcjyCategoryId,
                 title: ''
@@ -1073,7 +1077,37 @@ var mainApp = {
                         })
                         $('.xcjyBox').children().last().text(res.result.total + '条')
                         $('#customXcjyId').nextAll('.lookMore').children('a').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=' + mainApp.store.policeId + '&categoryId=' + mainApp.store.xcjyCategoryId + '&columnTitle=宣传教育')
-
+                    }
+                }
+            })
+        },
+        //  助力创文
+        createZlcw: function () {
+            $('.zlcwBox').children().last().text('')
+            $('#customZlcwId').empty()
+            $('#customZlcwId').nextAll('.lookMore').children('a').attr('href', 'javascript:;')
+            let url = webApi.base.getUrl(webApi.commonUrl.columnList)
+            let data = {
+                pageNo: 1,
+                pageSize: 2,
+                policeId: mainApp.store.policeId,
+                categoryId: mainApp.store.zlcwCategoryId,
+                title: ''
+            }
+            customAjax.AjaxGet(url, data, function (res) {
+                if (res.code === 200) {
+                    if (res.result.records.length > 0) {
+                        var customArr = res.result.records
+                        layui.use('laytpl', function () {
+                            var laytpl = layui.laytpl
+                            var orderInfoTpl = xcjyScript.innerHTML,
+                                orderInfoDiv = document.getElementById('customZlcwId')
+                            laytpl(orderInfoTpl).render(customArr, function (html) {
+                                orderInfoDiv.innerHTML = html
+                            })
+                        })
+                        $('.zlcwBox').children().last().text(res.result.total + '条')
+                        $('#customZlcwId').nextAll('.lookMore').children('a').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=' + mainApp.store.policeId + '&categoryId=' + mainApp.store.zlcwCategoryId + '&columnTitle=助力创文')
                     }
                 }
             })
@@ -1359,10 +1393,10 @@ var mainApp = {
 
             if (jbgkStatisticsHeight - parseFloat($(window).scrollTop()) <= parseFloat($(window).height()) && mainApp.store.custonNum == 1) {
 
-                mainApp.methods.createGeneralSituation() // 基本概況
-                mainApp.methods.createYxcjList() // 优秀村居
-                mainApp.methods.createGzzdList() // 规章制度
-                mainApp.methods.createWorkTrack(mainApp.store.curr, mainApp.store.limit, mainApp.store.userId, mainApp.store.userName, mainApp.store.startTime, mainApp.store.endTime) // 工作轨迹
+                // mainApp.methods.createGeneralSituation() // 基本概況
+                // mainApp.methods.createYxcjList() // 优秀村居
+                // mainApp.methods.createGzzdList() // 规章制度
+                // mainApp.methods.createWorkTrack(mainApp.store.curr, mainApp.store.limit, mainApp.store.userId, mainApp.store.userName, mainApp.store.startTime, mainApp.store.endTime) // 工作轨迹
 
 
                 mainApp.store.custonNum = 2
@@ -1370,7 +1404,7 @@ var mainApp = {
             if (zcjlParentBoxHeight - parseFloat($(window).scrollTop()) <= parseFloat($(window).height()) && mainApp.store.custonNum == 2) {
 
 
-                mainApp.methods.createZcjlList() // 村警之星
+                // mainApp.methods.createZcjlList() // 村警之星
                 mainApp.methods.createPcsList() // 各所排行
                 mainApp.methods.createGcjphList() // 各村（居）排行
                 mainApp.methods.createCjphList() // 村警排行
@@ -1380,6 +1414,7 @@ var mainApp = {
                 mainApp.methods.createAqjcjd() // 安全检查监督
                 mainApp.methods.createZdrygk() // 重点人员管控
                 mainApp.methods.createXcjy() // 宣传教育
+                mainApp.methods.createZlcw() // 助力创文
 
                 mainApp.store.custonNum = 3
             }
@@ -1393,14 +1428,14 @@ var mainApp = {
     },
     init: function () {
 
-        $('header').load('/ycyj/pages/commonNav.html .commonNav', function () {
+        $('header').load('./pages/commonNav.html .commonNav', function () {
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navHomeId').attr('href', hostsrp.locationHref + hostsrp.homePage) // 首页
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navGzzdId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('gzzdId') + '&columnTitle=规章制度') // 规章制度
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navYxcjId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('yxcjId') + '&columnTitle=优秀村居') // 优秀村居
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navTcwtzzId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('tcwtzzId') + '&columnTitle=突出问题整治') // 突出问题整治
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navCjzxId').attr('href', hostsrp.locationHref + hostsrp.cjzxListPage) // 村警之星
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navLwgbId').attr('href', hostsrp.locationHref + hostsrp.leaderPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('lwgbId') + '&columnTitle=两委干部') // 两委干部
-            $.getScript("/ycyj/js/commonNav.js")
+            $.getScript("./js/commonNav.js")
 
             mainApp.event()
 
@@ -1421,12 +1456,12 @@ var mainApp = {
 
             setTimeout(() => {
                 mainApp.methods.createTreeList()
-                mainApp.methods.createFjdt() // 分局动态
-                mainApp.methods.createLdpsAndTztg(mainApp.store.tztgCategoryId2, '通知通告') // 领导批示 / 通知通告
-                mainApp.methods.createGzjbAndGzdtb(mainApp.store.gzjbCategoryId2, '分局简报') // 分局简报
-                mainApp.methods.createJbgkList() // 基本概况
-                mainApp.methods.createZcmjList() // 驻村(居)警力
-                mainApp.methods.initializeMap()
+                // mainApp.methods.createFjdt() // 分局动态
+                // mainApp.methods.createLdpsAndTztg(mainApp.store.tztgCategoryId2, '通知通告') // 领导批示 / 通知通告
+                // mainApp.methods.createGzjbAndGzdtb(mainApp.store.gzjbCategoryId2, '分局简报') // 分局简报
+                // mainApp.methods.createJbgkList() // 基本概况
+                // mainApp.methods.createZcmjList() // 驻村(居)警力
+                // mainApp.methods.initializeMap()
             }, 1000)
 
         })

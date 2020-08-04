@@ -147,7 +147,7 @@
               </li>
               <li>
                 <div class="imgBox">
-                  <img src='./image/ctt.jpg' alt="">
+                  <img src='./image/qgp.jpg' alt="">
                 </div>
                 <div class="describe">
                   <p>
@@ -442,27 +442,73 @@
         </div>
       </div>
     </div>
-    <!-- 宣传教育 -->
-    <div class="mt40 allBorder publicityBox">
-      <div class="titleBox xcjyBox">
-        <p>
-          <img src="./image/zcjl_icon.png" alt="">
-          <span>宣传教育</span>
-        </p>
-        <p></p>
+    <!-- 宣传教育 / 助力创文 -->
+    <div class="mt40 mb20 newListBox publicityBox">
+      <div class="allBorder titleName xcjyPanel">
+        <div class="titleBox xcjyBox">
+          <span><img src="./image/zcjl_icon.png" alt="">宣传教育</span>
+          <span></span>
+        </div>
+        <ul class="mt20" id="customXcjyId">
+          <!-- <li>
+            <a href="javascript:;">
+              <div class="imgBox">
+                <img src="./image/03.jpg" alt="">
+              </div>
+              <p>
+                <span>[ 陈江仲恺 ]</span>
+                <span>惠州新闻</span>
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <div class="imgBox">
+                <img src="./image/03.jpg" alt="">
+              </div>
+              <p>
+                <span>[ 陈江仲恺 ]</span>
+                <span>惠州新闻</span>
+              </p>
+            </a>
+          </li> -->
+        </ul>
+        <div class="lookMore">
+          <a href="javascript:;" target="_blank">查看更多 >></a>
+        </div>
       </div>
-      <ul class="mt20" id="customXcjyId">
-        <!--   <li>
-                    <a href="javascript:;">
-                        <div class="imgBox">
-                            <img src="./image/03.jpg" alt="">
-                        </div>
-                        <p>惠州新闻</p>
-                    </a>
-                </li> -->
-      </ul>
-      <div class="lookMore">
-        <a href="javascript:;" target="_blank">查看更多 >></a>
+      <div class="allBorder titleName zlcwPanel">
+        <div class="titleBox zlcwBox">
+          <span><img src="./image/zlcw_icon.png" alt="">助力创文</span>
+          <span></span>
+        </div>
+        <ul class="mt20" id="customZlcwId">
+          <!-- <li>
+            <a href="javascript:;">
+              <div class="imgBox">
+                <img src="./image/03.jpg" alt="">
+              </div>
+              <p>
+                <span>[ 陈江仲恺 ]</span>
+                <span>惠州新闻</span>
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <div class="imgBox">
+                <img src="./image/03.jpg" alt="">
+              </div>
+              <p>
+                <span>[ 陈江仲恺 ]</span>
+                <span>惠州新闻</span>
+              </p>
+            </a>
+          </li> -->
+        </ul>
+        <div class="lookMore">
+          <a href="javascript:;" target="_blank">查看更多 >></a>
+        </div>
       </div>
     </div>
   </div>
@@ -472,9 +518,9 @@
 <script src="./js/jquery-1.12.4.js"></script>
 <script src="./js/moment.js"></script>
 <script src="./src/layui.js"></script>
-<!-- <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=cOMo1Q2VVE3scKBE6pWbv8dfvoDuaj8S"></script> -->
-<script type="text/javascript" src="../polyfill.js"></script>
-<script type="text/javascript" src="../baiduMap/map_load.js"></script>
+<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=cOMo1Q2VVE3scKBE6pWbv8dfvoDuaj8S"></script>
+<!-- <script type="text/javascript" src="../polyfill.js"></script> -->
+<!-- <script type="text/javascript" src="../baiduMap/map_load.js"></script> -->
 <script src="./js/api.js"></script>
 <script src="./js/main.js"></script>
 <script id="swiperList" type="text/html">
@@ -847,16 +893,16 @@
 </script>
 <script id="xcjyScript" src="" type="text/html">
     {{#  layui.each(d, function(index, item){ }}
-     <li>
-        <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
-            <div class="imgBox">
-                <img src="{{hostsrp.imgUrl + item.image}}" alt="">
-            </div>
-            <p>
-              <span>[ {{ item.policeareaname }} ]</span>
-              <span>{{ item.title }}</span>
-            </p>
-        </a>
+    <li>
+      <a href={{ hostsrp.locationHref + hostsrp.detailsPage + "?id=" +  item.id + "&flag=1" }} target="_blank">
+        <div class="imgBox">
+           <img src="{{hostsrp.imgUrl + item.image}}" alt="">
+        </div>
+        <p>
+            <span>[ {{ item.policeareaname }} ]</span>
+            <span>{{ item.title }}</span>
+        </p>
+      </a>
     </li>
   {{#  }); }}
   {{#  if(d.length === 0){ }}
