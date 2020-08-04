@@ -138,13 +138,15 @@ a:hover {
 .menuTree {
     width: 210px;
     height: 500px;
-    overflow: scroll;
+    overflow-y: scroll;
     border: 1px solid #ebebeb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
     font-size: 16px;
-    background-color: #f5f5f5;
+    background-color: white;
     padding: 0 15px;
     box-sizing: border-box;
     display: none;
+    z-index: 9;
 }
 
 .menuTree p {
@@ -202,4 +204,29 @@ a:hover {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+/*修改滚动条样式*/
+
+.menuTree::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.menuTree::-webkit-scrollbar-track {
+    background: rgb(239, 239, 239);
+    border-radius: 2px;
+}
+
+.menuTree::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 10px;
+}
+
+.menuTree::-webkit-scrollbar-thumb:hover {
+    background: #ddd;
+}
+
+.menuTree::-webkit-scrollbar-corner {
+    background: #179a16;
 }

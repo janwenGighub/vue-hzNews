@@ -27,43 +27,9 @@ $(function () {
                 zIndex: 2e9, // The z-index (defaults to 2000000000)
                 top: 'auto', // Top position relative to parent in px
                 left: 'auto' // Left position relative to parent in px
-            },
-            setting: {
-                data: {
-                    key: {
-                        name: 'title'
-                    }
-                },
-                callback: {
-                    beforeClick: function (treeId, treeNode) {
-                        mainApp.store.policeId = treeNode.key
-
-                        $('.contentArea').find('.nameChange').each(function () {
-                            $(this).children('p:first-child').addClass('targetBdCor').siblings('p:last-child').removeClass('targetBdCor')
-                        })
-
-                        $('header').children('.commonNav').children('.navTitle').children('h1').text(treeNode.jgmc + '一村 (居) 一警专栏')
-                        $('header').children('.commonNav').children().last().children('ul').children('li').find('#customTree').text(treeNode.jgmc)
-                        $('header').children('.commonNav').children().last().children('ul').children('li').find('#customTree').nextAll('.zTreeDemoBackground').addClass('customShow')
-
-                    }
-                }
             }
         },
         methods: {
-            /* 树形结构 */
-            createTreeList: function () {
-                let url = webApi.base.getUrl(webApi.commonUrl.treelList)
-                let data = {}
-                customAjax.AjaxGet(url, data, function (res) {
-                    if (res.code === 0) {
-                        var customArr = res.result
-                        mainApp.store.treeArr = customArr
-                        let treeDemoId = $('header').find('.navList').children('ul').children().last().find('#treeDemo')
-                        $.fn.zTree.init(treeDemoId, mainApp.store.setting, mainApp.store.treeArr)
-                    }
-                })
-            },
             // 创建栏目
             createColumn: function () {
                 let url = webApi.base.getUrl(webApi.commonUrl.column)
@@ -200,14 +166,14 @@ $(function () {
             },
         },
         event: function () {
-            $('header').load('../pages/commonNav.html .commonNav', function () {
+            $('header').load('/ycyj/pages/commonNav.html .commonNav', function () {
                 $('header').children('.commonNav').children().last().children('ul').children('li').find('#navHomeId').attr('href', hostsrp.locationHref + hostsrp.homePage) // 首页
                 $('header').children('.commonNav').children().last().children('ul').children('li').find('#navGzzdId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('gzzdId') + '&columnTitle=规章制度') // 规章制度
                 $('header').children('.commonNav').children().last().children('ul').children('li').find('#navYxcjId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('yxcjId') + '&columnTitle=优秀村居') // 优秀村居
                 $('header').children('.commonNav').children().last().children('ul').children('li').find('#navTcwtzzId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('tcwtzzId') + '&columnTitle=突出问题整治') // 突出问题整治
                 $('header').children('.commonNav').children().last().children('ul').children('li').find('#navCjzxId').attr('href', hostsrp.locationHref + hostsrp.cjzxListPage) // 村警之星
                 $('header').children('.commonNav').children().last().children('ul').children('li').find('#navLwgbId').attr('href', hostsrp.locationHref + hostsrp.leaderPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('lwgbId') + '&columnTitle=两委干部') // 两委干部
-                $.getScript("../js/commonNav.js")
+                $.getScript("/ycyj/js/commonNav.js")
             })
 
             let customHref = window.location.href
@@ -235,9 +201,6 @@ $(function () {
         init: function () {
             mainApp.event()
             mainApp.methods.createNewsList(mainApp.store.curr, mainApp.store.limit)
-            // setTimeout(() => {
-            //     mainApp.methods.createTreeList()
-            // }, 1000)
         },
     }
     mainApp.init()

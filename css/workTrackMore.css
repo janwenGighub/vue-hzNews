@@ -114,9 +114,7 @@
 
 .contentList .exhibition .map {
   width: 61%;
-  /* height: 592px; */
   overflow: hidden;
-  /* border: 1px solid red; */
 }
 
 .customLabel {

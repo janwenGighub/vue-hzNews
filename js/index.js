@@ -1,5 +1,6 @@
 var mainApp = {
     store: {
+        indexFlag: true,
         customStr: '',
         policeId: '441330',
         policeName: '仲恺公安分局一村 (居) 一警专栏',
@@ -54,7 +55,6 @@ var mainApp = {
                 if (res.code === 0) {
                     var customArr = res.result
                     mainApp.store.treeArr = customArr
-                    let treeDemoId = $('header').find('.navList').children('ul').children().last().find('#treeDemo')
                     document.getElementById("menuTree").innerHTML = mainApp.methods.forTree(customArr)
                     $.getScript('./js/customTree.js')
                 }
@@ -1393,14 +1393,14 @@ var mainApp = {
     },
     init: function () {
 
-        $('header').load('./pages/commonNav.html .commonNav', function () {
+        $('header').load('/ycyj/pages/commonNav.html .commonNav', function () {
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navHomeId').attr('href', hostsrp.locationHref + hostsrp.homePage) // 首页
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navGzzdId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('gzzdId') + '&columnTitle=规章制度') // 规章制度
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navYxcjId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('yxcjId') + '&columnTitle=优秀村居') // 优秀村居
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navTcwtzzId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('tcwtzzId') + '&columnTitle=突出问题整治') // 突出问题整治
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navCjzxId').attr('href', hostsrp.locationHref + hostsrp.cjzxListPage) // 村警之星
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navLwgbId').attr('href', hostsrp.locationHref + hostsrp.leaderPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('lwgbId') + '&columnTitle=两委干部') // 两委干部
-            $.getScript("./js/commonNav.js")
+            $.getScript("/ycyj/js/commonNav.js")
 
             mainApp.event()
 
@@ -1421,12 +1421,12 @@ var mainApp = {
 
             setTimeout(() => {
                 mainApp.methods.createTreeList()
-                // mainApp.methods.createFjdt() // 分局动态
-                // mainApp.methods.createLdpsAndTztg(mainApp.store.tztgCategoryId2, '通知通告') // 领导批示 / 通知通告
-                // mainApp.methods.createGzjbAndGzdtb(mainApp.store.gzjbCategoryId2, '分局简报') // 分局简报
-                // mainApp.methods.createJbgkList() // 基本概况
-                // mainApp.methods.createZcmjList() // 驻村(居)警力
-                // mainApp.methods.initializeMap()
+                mainApp.methods.createFjdt() // 分局动态
+                mainApp.methods.createLdpsAndTztg(mainApp.store.tztgCategoryId2, '通知通告') // 领导批示 / 通知通告
+                mainApp.methods.createGzjbAndGzdtb(mainApp.store.gzjbCategoryId2, '分局简报') // 分局简报
+                mainApp.methods.createJbgkList() // 基本概况
+                mainApp.methods.createZcmjList() // 驻村(居)警力
+                mainApp.methods.initializeMap()
             }, 1000)
 
         })

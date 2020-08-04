@@ -1,41 +1,11 @@
-$(function () {
-  var mainApp = {
+ var mainApp = {
     store: {
+      customStr: '',
+      zcjjlListFlag: true,
       policeId: '441330',
       treeArr: [],
       curr: 1,
-      limit: 16,
-      setting: {
-        data: {
-          key: {
-            name: 'title'
-          }
-        },
-        callback: {
-          beforeClick: function (treeId, treeNode) {
-            mainApp.store.policeId = treeNode.key
-
-            if (treeNode.jgjb === '3' || treeNode.jgjb === '4') {
-              $('.mjFlag_ul').addClass('mjShow')
-            } else {
-              $('.mjFlag_ul').removeClass('mjShow')
-            }
-
-            if (treeNode.jgjb === '2') {
-              mainApp.methods.createZcmjList()
-            } else if (treeNode.jgjb === '3') {
-              mainApp.methods.createZcmjList2()
-            } else {
-              mainApp.methods.createZcmjList3()
-            }
-
-            $('header').children('.commonNav').children('.navTitle').children('h1').text(treeNode.jgmc + '一村 (居) 一警专栏')
-            $('header').children('.commonNav').children().last().children('ul').children('li').find('#customTree').text(treeNode.jgmc)
-            $('header').children('.commonNav').children().last().children('ul').children('li').find('#customTree').nextAll('.zTreeDemoBackground').addClass('customShow')
-
-          }
-        }
-      }
+      limit: 16
     },
     methods: {
       /* 树形结构 */
@@ -46,10 +16,28 @@ $(function () {
           if (res.code === 0) {
             var customArr = res.result
             mainApp.store.treeArr = customArr
-            let treeDemoId = $('header').find('.navList').children('ul').children().last().find('#treeDemo')
-            $.fn.zTree.init(treeDemoId, mainApp.store.setting, mainApp.store.treeArr)
+            document.getElementById("menuTree").innerHTML = mainApp.methods.forTree(customArr)
+            $.getScript('../js/customTree.js')
           }
         })
+      },
+      forTree: function (o) {
+        for (var i = 0; i < o.length; i++) {
+          var urlstr = ""
+          try {
+            if (typeof o[i]["url"] == "undefined") {
+              urlstr = "<p><a jgjb=" + o[i].jgjb + " id=" + o[i].key + " href='javascript:;'><span>" + o[i]["title"] + "</span></a><div class='treeUl'>"
+            } else {
+              urlstr = "<li><span><a href=" + o[i]["url"] + ">" + o[i]["title"] + "</a></span><ul>"
+            }
+            mainApp.store.customStr += urlstr
+            if (o[i]["children"] != null) {
+              mainApp.methods.forTree(o[i]["children"])
+            }
+            mainApp.store.customStr += "</div></p>"
+          } catch (e) { }
+        }
+        return mainApp.store.customStr
       },
       // 分局
       createZcmjList: function () {
@@ -104,7 +92,7 @@ $(function () {
                             newHtml += '</p>'
                             newHtml += '</div>'
                             newHtml += '</li>'
-                          } 
+                          }
                           // else {
                           //   newHtml += '<li>'
                           //   newHtml += '<div class="imgBox">'
@@ -195,7 +183,7 @@ $(function () {
                         newHtml += '</p>'
                         newHtml += '</div>'
                         newHtml += '</li>'
-                      } 
+                      }
                       // else {
                       //   newHtml += '<li>'
                       //   newHtml += '<div class="imgBox">'
@@ -280,7 +268,7 @@ $(function () {
                     newHtml += '</p>'
                     newHtml += '</div>'
                     newHtml += '</li>'
-                  } 
+                  }
                   // else {
                   //   newHtml += '<li>'
                   //   newHtml += '<div class="imgBox">'
@@ -339,4 +327,3 @@ $(function () {
     }
   }
   mainApp.init()
-})
