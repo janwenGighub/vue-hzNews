@@ -1,3 +1,5 @@
+
+
 var mainApp = {
     store: {
         indexFlag: true,
@@ -5,6 +7,7 @@ var mainApp = {
         policeId: '441330',
         policeName: '仲恺公安分局一村 (居) 一警专栏',
         treeArr: [],
+        allArr: [],
 
         tztgCategoryId: '', // 通知通告 栏目 id
         tztgCategoryId2: '4179', // 通知通告 栏目 id
@@ -262,8 +265,6 @@ var mainApp = {
                         console.log('轮播图')
                         if (res.result.records.length > 0) {
                             var customArr = res.result.records
-                            console.log('customArr')
-                            console.log(customArr)
                             layui.use('laytpl', function () {
                                 var laytpl = layui.laytpl
                                 var orderInfoTpl = swiperList.innerHTML,
@@ -593,27 +594,65 @@ var mainApp = {
         },
         // 驻村(居)警力
         createZcmjList: function () {
-            $('#customZcmjId').empty()
-            let url = webApi.base.getUrl(webApi.commonUrl.zcmjList)
+            mainApp.store.allArr = []
+            $('.dowebok').nextAll('.lookMore').children().attr('href', 'javascript:;')
+            $('.dowebok').empty()
+            let url = webApi.base.getUrl(webApi.commonUrl.cjbjlList)
             let data = {
                 pageNo: 1,
-                pageSize: 3,
-                policeId: mainApp.store.policeId
+                pageSize: 10,
+                policeId: mainApp.store.policeId,
+                iscjb: '0' // iscjb 为 1 查询村警办警力，0 或其他查询非村警办警力
             }
             customAjax.AjaxGet(url, data, function (res) {
-                if (res.result.records.length > 0) {
-                    var customArr = res.result.records
-                    layui.use('laytpl', function () {
-                        var laytpl = layui.laytpl
-                        var orderInfoTpl = zcmjScript.innerHTML,
-                            orderInfoDiv = document.getElementById('customZcmjId')
-                        laytpl(orderInfoTpl).render(customArr, function (html) {
-                            orderInfoDiv.innerHTML = html
-                        })
-                    })
-                    $('#customZcmjId').nextAll().children('a').attr('href', hostsrp.locationHref + hostsrp.zcmjPage)
+                if (res.code === 200) {
+                    if (res.result.records.length > 0) {
+                        mainApp.store.allArr = res.result.records
+                        mainApp.methods.createAll(mainApp.store.allArr)
+                        $('.dowebok').nextAll('.lookMore').children().attr('href', hostsrp.locationHref + hostsrp.zcmjPage)
+                    }
                 }
             })
+        },
+        // 驻村（居）警力 - 村警办
+        createCjbList: function () {
+            mainApp.store.allArr = []
+            $('.dowebok').nextAll('.lookMore').children().attr('href', 'javascript:;')
+            $('.dowebok').empty()
+            let url = webApi.base.getUrl(webApi.commonUrl.cjbjlList)
+            let data = {
+                pageNo: 1,
+                pageSize: 100,
+                iscjb: '1', // iscjb 为 1 查询村警办警力，0 或其他查询非村警办警力
+            }
+            customAjax.AjaxGet(url, data, function (res) {
+                if (res.code === 200) {
+                    if (res.result.records.length > 0) {
+                        mainApp.store.allArr = res.result.records
+                        mainApp.methods.createAll(mainApp.store.allArr)
+                        $('.dowebok').nextAll('.lookMore').children().attr('href', hostsrp.locationHref + hostsrp.zcmjPage)
+                    }
+                }
+            })
+        },
+        // 驻村警力
+        createAll: function (array) {
+            layui.use('laytpl', function () {
+                var laytpl = layui.laytpl
+                var orderInfoTpl = cjbScript.innerHTML,
+                    orderInfoDiv = document.getElementById('customCjbId')
+                laytpl(orderInfoTpl).render(array, function (html) {
+                    orderInfoDiv.innerHTML = html
+                })
+            })
+            setTimeout(() => {
+                $('.dowebok').liMarquee({
+                    direction: 'up',
+                    circular: true,
+                    scrollamount: 60,
+                    runshort: false
+                })
+            }, 1500)
         },
         // 基本概况
         createGeneralSituation: function () {
@@ -1380,6 +1419,7 @@ var mainApp = {
             })
         })
 
+
         // 屏幕滚动事件
         $(window).scroll(function () {
 
@@ -1430,7 +1470,9 @@ var mainApp = {
 
         $('header').load('./pages/commonNav.html .commonNav', function () {
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navHomeId').attr('href', hostsrp.locationHref + hostsrp.homePage) // 首页
-            $('header').children('.commonNav').children().last().children('ul').children('li').find('#navGzzdId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('gzzdId') + '&columnTitle=规章制度') // 规章制度
+            // $('header').children('.commonNav').children().last().children('ul').children('li').find('#navGzzdId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('gzzdId') + '&columnTitle=规章制度') // 规章制度
+            $('header').children('.commonNav').children().last().children('ul').children('li').find('#navZcjjlPageId').attr('href', hostsrp.locationHref + hostsrp.zcmjPage) // 驻村警力
+            $('header').children('.commonNav').children().last().children('ul').children('li').find('#navYjssPageId').attr('href', hostsrp.locationHref + hostsrp.yjssListPage) // 硬件配置
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navYxcjId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('yxcjId') + '&columnTitle=优秀村居') // 优秀村居
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navTcwtzzId').attr('href', hostsrp.locationHref + hostsrp.moreListPage + '?policeId=441330&categoryId=' + window.sessionStorage.getItem('tcwtzzId') + '&columnTitle=突出问题整治') // 突出问题整治
             $('header').children('.commonNav').children().last().children('ul').children('li').find('#navCjzxId').attr('href', hostsrp.locationHref + hostsrp.cjzxListPage) // 村警之星
@@ -1460,12 +1502,13 @@ var mainApp = {
                 // mainApp.methods.createLdpsAndTztg(mainApp.store.tztgCategoryId2, '通知通告') // 领导批示 / 通知通告
                 // mainApp.methods.createGzjbAndGzdtb(mainApp.store.gzjbCategoryId2, '分局简报') // 分局简报
                 // mainApp.methods.createJbgkList() // 基本概况
-                // mainApp.methods.createZcmjList() // 驻村(居)警力
+                mainApp.methods.createCjbList() // 驻村居警力 - 村警办
                 // mainApp.methods.initializeMap()
-            }, 1000)
 
+            }, 1000)
         })
 
     },
 }
 mainApp.init()
+

@@ -44,5 +44,7 @@ var webApi = {
         
         gcjphList: '/ycyj/ycyjRank/cjRankList', // 各村居排行
         cjphList: '/ycyj/ycyjRank/grRankList', // 村警排行
+
+        cjbjlList: '/ycyj/ycyjZcjl/list', // 驻村（居）警力 (村警办警力)
     }
 }

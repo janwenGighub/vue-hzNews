@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./src/css/layui.css">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/demo.css">
+  <link rel="stylesheet" href="./css/liMarquee.css">
   <link rel="stylesheet" href="./css/index.css">
   <style>
     .zcjjlShow {
@@ -122,78 +123,14 @@
             驻村（居）警力
           </div>
           <div class="policeList">
-            <ul class="police_ul">
-              <li>
-                <div class="imgBox">
-                  <img src='./image/qp.jpg' alt="">
-                </div>
-                <div class="describe">
-                  <p>
-                    <span>姓名：</span><span>阙鹏</span>
-                  </p>
-                  <p>
-                    <span>警号：</span><span>139031</span>
-                  </p>
-                  <p>
-                    <span>联系方式：</span><span>13902661272</span>
-                  </p>
-                  <p>
-                    <span>单位：</span><span>村警办</span>
-                  </p>
-                  <p>
-                    <span>职务：</span><span>副主任</span>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div class="imgBox">
-                  <img src='./image/qgp.jpg' alt="">
-                </div>
-                <div class="describe">
-                  <p>
-                    <span>姓名：</span><span>邱干平</span>
-                  </p>
-                  <p>
-                    <span>警号：</span><span>139161</span>
-                  </p>
-                  <p>
-                    <span>联系方式：</span><span>13928382313</span>
-                  </p>
-                  <p>
-                    <span>单位：</span><span>村警办</span>
-                  </p>
-                  <p>
-                    <span>职务：</span><span>户政股指导员</span>
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div class="imgBox">
-                  <img src='./image/yjt.jpg' alt="">
-                </div>
-                <div class="describe">
-                  <p>
-                    <span>姓名：</span><span>叶建庭</span>
-                  </p>
-                  <p>
-                    <span>警号：</span><span>139035</span>
-                  </p>
-                  <p>
-                    <span>联系方式：</span><span>15986986153</span>
-                  </p>
-                  <p>
-                    <span>单位：</span><span>村警办</span>
-                  </p>
-                  <p>
-                    <span>职务：</span><span>团委副书记</span>
-                  </p>
-                </div>
-              </li>
-            </ul>
+            <div class="dowebok" id="customCjbId" style="height: 390px;overflow-y: hidden;">
+              <ul class="police_ul cjb_ul">
+              </ul>
+            </div>
             <ul class="police_ul zcjjlShow" id="customZcmjId">
             </ul>
             <div class="lookMore">
-              <a href="javascript:;">查看更多 >></a>
+              <a href="javascript:;" target="_blank">查看更多 >></a>
             </div>
           </div>
         </div>
@@ -516,6 +453,7 @@
 
 </html>
 <script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/jquery.liMarquee.js"></script>
 <script src="./js/moment.js"></script>
 <script src="./src/layui.js"></script>
 <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=cOMo1Q2VVE3scKBE6pWbv8dfvoDuaj8S"></script>
@@ -908,5 +846,43 @@
   {{#  if(d.length === 0){ }}
     无数据
   {{#  } }} 
+</script>
+<script id="cjbScript" src="" type="text/html">
+    <ul class="police_ul cjb_ul">
+      {{#  layui.each(d, function(index, item){ }}
+           <li>
+              <div class="imgBox">
+                <img src={{ hostsrp.imgUrl + item.avatar }} alt="">
+              </div>
+              <div class="describe">
+                <p>
+                  <span>姓名：</span><span>{{ item.name }}</span>
+                </p>
+                <p>
+                  <span>警号：</span><span>{{ item.policeNum }}</span>
+                </p>
+                <p>
+                  <span>联系方式：</span><span>{{ item.phone }}</span>
+                </p>
+  
+                {{#  if(item.iscjb === '1') { }}
+                <p>
+                  <span>单位：</span><span>村警办</span>
+                </p>
+                {{#  } else { }}
+                <p>
+                  <span>单位：</span><span>{{ item.departName }}</span>
+                </p>
+                {{#  } }}    
+                <p>
+                  <span>职务：</span><span>{{ item.post_dictText }}</span>
+                </p>
+              </div>
+          </li>
+    {{#  }); }}
+    {{#  if(d.length === 0){ }}
+      无数据
+    {{#  } }} 
+    </ul>
 </script>
 <script src="./js/index.js"></script>

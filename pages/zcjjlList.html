@@ -72,8 +72,8 @@
       <h3>驻村(居)警力</h3>
     </div>
     <div class="preview">
-      <div class="mt20 mb20 policeBox">
-        
+      <div class="mt20 mb20 policeBox" id="policeBox">
+
       </div>
     </div>
     <div class="listPaging">
@@ -88,10 +88,48 @@
 <script src="../js/api.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/zcjjlList.js"></script>
-<script>
-  $(".subNav").click(function () {
-    $(this).toggleClass("currentDd").siblings(".subNav").removeClass("currentDd")
-    $(this).toggleClass("currentDt").siblings(".subNav").removeClass("currentDt")
-    $(this).next(".navContent").slideToggle(300).siblings(".navContent").slideUp(300)
-  })
+<script id="zcjjlListScript" src="" type="text/html">
+  <div class="viewBox">
+  <h4>仲恺分局</h4>
+  <div class="person">
+    <div class="villageName">村警办</div>
+    <div class="personList">
+      <ul class="zcmj_ul mjFlag_ul">
+        {{#  layui.each(d, function(index, item){ }}
+        <li>
+          <div class="imgBox">
+            <img src={{ hostsrp.imgUrl + item.avatar }} alt="">  
+          </div>
+          <div class="describe">
+            <p>
+              <span>姓名:</span><span>{{ item.name }}</span>
+            </p>
+            <p>
+              <span>警号:</span><span>{{ item.policeNum}}</span>
+            </p>
+            <p>
+              <span>联系方式:</span><span>{{ item.phone }}</span>
+            </p>
+            {{#  if(item.iscjb === '1') { }}
+            <p>
+              <span>单位：</span><span>村警办</span>
+            </p>
+            {{#  } else { }}
+            <p>
+              <span>单位：</span><span>{{ item.departName }}</span>
+            </p>
+            {{#  } }}
+            <p>
+              <span>职务:</span><span>{{ item.post_dictText }}</span>
+            </p>
+          </div>
+        </li>
+        {{#  }); }}
+        {{#  if(d.length === 0){ }}
+          无数据
+        {{#  } }}
+      </ul>
+    </div>
+  </div>
+</div>
 </script>

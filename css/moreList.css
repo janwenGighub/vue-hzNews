@@ -30,6 +30,9 @@
 .preview .preview_list li>a span:nth-child(2) {
     margin-left: 10px;
     width: calc(100% - 100px - 100px - 10px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .preview .preview_list li>a span:last-child {
